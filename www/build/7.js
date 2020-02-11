@@ -1,6 +1,6 @@
 webpackJsonp([7],{
 
-/***/ 737:
+/***/ 739:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MovieDetailsPageModule", function() { return MovieDetailsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__movie_details__ = __webpack_require__(749);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__movie_details__ = __webpack_require__(752);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var MovieDetailsPageModule = (function () {
 
 /***/ }),
 
-/***/ 749:
+/***/ 752:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -170,12 +170,12 @@ var MovieDetailsPage = (function () {
             return;
         }
         if (this.movie.videoUrl === "") {
-            var alert = this.alertController.create({
+            var alert_1 = this.alertController.create({
                 title: "This movie has not yet been uploaded!",
                 subTitle: "Use the Admin Ion Netflix to add the movie and watch it here!",
                 buttons: ["Dismiss"]
             });
-            alert.present();
+            alert_1.present();
             return;
         }
         var options = {
@@ -199,12 +199,12 @@ var MovieDetailsPage = (function () {
             return false;
         }
         if (this.movie.videoUrl === "") {
-            var alert = this.alertController.create({
+            var alert_2 = this.alertController.create({
                 title: "This movie has not yet been uploaded!",
                 subTitle: "Use the Admin Ion Netflix to add the movie and download it here!",
                 buttons: ["Dismiss"]
             });
-            alert.present();
+            alert_2.present();
             return;
         }
         this.isDownloading = true;
@@ -238,12 +238,20 @@ var MovieDetailsPage = (function () {
     };
     MovieDetailsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-movie-details",template:/*ion-inline-start:"D:\Archivos de Marin\Chamba\ionNetflixFrontend\src\pages\movie-details\movie-details.html"*/'<ion-header no-border>\n\n  <ion-navbar transparent>\n\n    <ion-buttons right>\n\n      <button ion-button icon-only color="netflixWhite">\n\n        <ion-icon name="logo-rss" item-end></ion-icon>\n\n      </button>\n\n\n\n      <button ion-button icon-only color="netflixWhite">\n\n        <ion-icon name="md-share" item-end></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content fullscreen padding>\n\n  <img class="details-picture" src="{{detailsPicture}}">\n\n\n\n  <button (click)="playMovie()" class="play-movie" ion-button icon-only clear>\n\n    <ion-icon name="md-play" item-end></ion-icon>\n\n  </button>\n\n\n\n  <p class="title">{{title}}</p>\n\n\n\n  <ion-row class="movie-details-row">\n\n    <p class="match-percentage">99% Match</p>\n\n    <p>{{releaseYear}}</p>\n\n    <p>{{rating}}</p>\n\n    <p>2h 2m</p>\n\n  </ion-row>\n\n\n\n  <ion-row class="movie-summary-row">\n\n    <p>{{description}}</p>\n\n  </ion-row>\n\n\n\n  <ion-row class="list-like-download-row">\n\n    <ion-col text-center col-3>\n\n      <button *ngIf="!isPartOfMyList" (click)="addToMyList()" ion-button icon-only clear color="netflixWhite">\n\n        <ion-icon name="md-add"></ion-icon>\n\n      </button>\n\n\n\n      <button class="isPartOfMyList" *ngIf="isPartOfMyList" (click)="removeFromMyList()" ion-button icon-only clear color="netflixWhite">\n\n        <ion-icon name="md-checkmark"></ion-icon>\n\n      </button>\n\n\n\n      <p>My List</p>\n\n    </ion-col>\n\n\n\n    <ion-col text-center col-3>\n\n      <button ion-button icon-only clear color="netflixWhite">\n\n        <ion-icon name="md-thumbs-up"></ion-icon>\n\n      </button>\n\n\n\n      <p>Rate</p>\n\n    </ion-col>\n\n\n\n    <ion-col text-center col-3>\n\n      <div *ngIf="!isDownloading && !isDownloaded">\n\n        <button (click)="downloadMovie()" ion-button icon-only clear color="netflixWhite">\n\n          <ion-icon name="md-download"></ion-icon>\n\n        </button>\n\n\n\n        <p>Download</p>\n\n      </div>\n\n\n\n      <div *ngIf="isDownloading && !isDownloaded">\n\n        <ion-spinner style="width: 35px; height: 35px;" color="netflixRed"></ion-spinner>\n\n        <p id="progressText">{{progress}}</p>\n\n      </div>\n\n\n\n      <div *ngIf="isDownloaded">\n\n        <button class="downloaded" ion-button icon-only clear>\n\n          <ion-icon name="md-checkmark"></ion-icon>\n\n        </button>\n\n\n\n        <p class="downloaded">Downloaded</p>\n\n      </div>\n\n    </ion-col>\n\n\n\n    <ion-col col-25></ion-col>\n\n  </ion-row>\n\n\n\n  <p class="more-like-this-title">More like this</p>\n\n\n\n  <ion-row *ngIf="!loaded">\n\n    <ion-col text-center>\n\n      <br>\n\n      <ion-spinner color="netflixRed"></ion-spinner>\n\n    </ion-col>\n\n  </ion-row>\n\n\n\n  <ion-row *ngIf="loaded" style="padding-left: 0px;">\n\n    <ion-col col-4 *ngFor="let movie of recentlyAddedMovies">\n\n      <img (click)="goToMovie(movie)" src="{{movie.picture}}" style="width:100%">\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-content>'/*ion-inline-end:"D:\Archivos de Marin\Chamba\ionNetflixFrontend\src\pages\movie-details\movie-details.html"*/
+            selector: "page-movie-details",template:/*ion-inline-start:"D:\Archivos de Marin\Chamba\ionNetflixFrontend\src\pages\movie-details\movie-details.html"*/'<ion-header no-border>\n\n  <ion-navbar transparent>\n\n    <ion-buttons right>\n\n      <button ion-button icon-only color="netflixWhite">\n\n        <ion-icon name="logo-rss" item-end></ion-icon>\n\n      </button>\n\n\n\n      <button ion-button icon-only color="netflixWhite">\n\n        <ion-icon name="md-share" item-end></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content fullscreen padding>\n\n  \n\n  <video *ngIf="!this.platform.is(\'cordova\')" controls src="{{url}}" type="video/mp4" class="center">\n\n  </video>\n\n\n\n  <img  *ngIf="this.platform.is(\'cordova\')" class="details-picture" src="{{detailsPicture}}">\n\n  <button  *ngIf="this.platform.is(\'cordova\')" (click)="playMovie()" class="play-movie" ion-button icon-only clear>\n\n    <ion-icon name="md-play" item-end></ion-icon>\n\n  </button>\n\n\n\n  <p class="title">{{title}}</p>\n\n\n\n  <ion-row class="movie-details-row">\n\n    <p class="match-percentage">99% Match</p>\n\n    <p>{{releaseYear}}</p>\n\n    <p>{{rating}}</p>\n\n    <p>2h 2m</p>\n\n  </ion-row>\n\n\n\n  <ion-row class="movie-summary-row">\n\n    <p>{{description}}</p>\n\n  </ion-row>\n\n\n\n  <ion-row class="list-like-download-row">\n\n    <ion-col text-center col-3>\n\n      <button *ngIf="!isPartOfMyList" (click)="addToMyList()" ion-button icon-only clear color="netflixWhite">\n\n        <ion-icon name="md-add"></ion-icon>\n\n      </button>\n\n\n\n      <button class="isPartOfMyList" *ngIf="isPartOfMyList" (click)="removeFromMyList()" ion-button icon-only clear color="netflixWhite">\n\n        <ion-icon name="md-checkmark"></ion-icon>\n\n      </button>\n\n\n\n      <p>My List</p>\n\n    </ion-col>\n\n\n\n    <ion-col text-center col-3>\n\n      <button ion-button icon-only clear color="netflixWhite">\n\n        <ion-icon name="md-thumbs-up"></ion-icon>\n\n      </button>\n\n\n\n      <p>Rate</p>\n\n    </ion-col>\n\n\n\n    <ion-col text-center col-3>\n\n      <div *ngIf="!isDownloading && !isDownloaded">\n\n        <button (click)="downloadMovie()" ion-button icon-only clear color="netflixWhite">\n\n          <ion-icon name="md-download"></ion-icon>\n\n        </button>\n\n\n\n        <p>Download</p>\n\n      </div>\n\n\n\n      <div *ngIf="isDownloading && !isDownloaded">\n\n        <ion-spinner style="width: 35px; height: 35px;" color="netflixRed"></ion-spinner>\n\n        <p id="progressText">{{progress}}</p>\n\n      </div>\n\n\n\n      <div *ngIf="isDownloaded">\n\n        <button class="downloaded" ion-button icon-only clear>\n\n          <ion-icon name="md-checkmark"></ion-icon>\n\n        </button>\n\n\n\n        <p class="downloaded">Downloaded</p>\n\n      </div>\n\n    </ion-col>\n\n\n\n    <ion-col col-25></ion-col>\n\n  </ion-row>\n\n\n\n  <p class="more-like-this-title">More like this</p>\n\n\n\n  <ion-row *ngIf="!loaded">\n\n    <ion-col text-center>\n\n      <br>\n\n      <ion-spinner color="netflixRed"></ion-spinner>\n\n    </ion-col>\n\n  </ion-row>\n\n  <ion-row *ngIf="loaded" style="padding-left: 0px;">\n\n    <ion-col col-4 *ngFor="let movie of recentlyAddedMovies">\n\n      <img (click)="goToMovie(movie)" src="{{movie.picture}}" style="width:100%">\n\n    </ion-col>\n\n  </ion-row>\n\n</ion-content>'/*ion-inline-end:"D:\Archivos de Marin\Chamba\ionNetflixFrontend\src\pages\movie-details\movie-details.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_streaming_media__["a" /* StreamingMedia */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_streaming_media__["a" /* StreamingMedia */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__services_MoviesService__["a" /* MoviesService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_MoviesService__["a" /* MoviesService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__services_UserService__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_UserService__["a" /* UserService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__services_AuthService__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__services_AuthService__["a" /* AuthService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_7__services_DownloadService__["a" /* DownloadService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_DownloadService__["a" /* DownloadService */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */]) === "function" && _k || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_streaming_media__["a" /* StreamingMedia */],
+            __WEBPACK_IMPORTED_MODULE_3__services_MoviesService__["a" /* MoviesService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_UserService__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_5__services_AuthService__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_7__services_DownloadService__["a" /* DownloadService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */]])
     ], MovieDetailsPage);
     return MovieDetailsPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 }());
 
 //# sourceMappingURL=movie-details.js.map

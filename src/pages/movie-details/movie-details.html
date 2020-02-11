@@ -13,9 +13,12 @@
 </ion-header>
 
 <ion-content fullscreen padding>
-  <img class="details-picture" src="{{detailsPicture}}">
+  
+  <video *ngIf="!this.platform.is('cordova')" controls src="{{url}}" type="video/mp4" class="center">
+  </video>
 
-  <button (click)="playMovie()" class="play-movie" ion-button icon-only clear>
+  <img  *ngIf="this.platform.is('cordova')" class="details-picture" src="{{detailsPicture}}">
+  <button  *ngIf="this.platform.is('cordova')" (click)="playMovie()" class="play-movie" ion-button icon-only clear>
     <ion-icon name="md-play" item-end></ion-icon>
   </button>
 
@@ -87,7 +90,6 @@
       <ion-spinner color="netflixRed"></ion-spinner>
     </ion-col>
   </ion-row>
-
   <ion-row *ngIf="loaded" style="padding-left: 0px;">
     <ion-col col-4 *ngFor="let movie of recentlyAddedMovies">
       <img (click)="goToMovie(movie)" src="{{movie.picture}}" style="width:100%">
